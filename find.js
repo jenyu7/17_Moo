@@ -32,7 +32,8 @@ var getColor = function(dist){
 	var color = Math.floor(256 - (256 * (dist / blackDist)))
 	if(color < 0) color = 0;
 	if(color > 255) color = 255;
-	hex = color.toString(16);
+	if(color > 15) hex = color.toString(16);
+	else hex = "0" + color.toString(16);
 	//console.log("#" + hex + hex + hex);
 	return "#" + hex + hex + hex;
 }
