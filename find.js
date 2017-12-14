@@ -27,6 +27,7 @@ var findIt = function(e) {
 };
 
 var getColor = function(dist){
+    if(counter > 0) return "red";
     var blackDist = distance(0, 0, boxHeight, boxWidth);
     //console.log((Math.floor(256 - (256 * (dist / blackDist)))).toString(16));
     var color = Math.floor(100 - (100 * (dist / blackDist)))
@@ -38,7 +39,7 @@ var getColor = function(dist){
 
 var isFound = function(e){
     console.log(distance(e.x, e.y, targetX, targetY));
-    var epsilon = 50;
+    var epsilon = 10;
     if(counter == 0 && distance(e.x, e.y, targetX, targetY) < epsilon){
 	console.log("Good job! You found it!");
 	box.style.backgroundColor = "red";
