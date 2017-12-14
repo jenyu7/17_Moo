@@ -1,3 +1,11 @@
+/*
+ * cuddly-umbrella
+ * Jawadul Kadir and Jen Yu
+ * 2017-12-13
+ * Softdev pd7
+ * 2017-12-13
+ */
+
 var box = document.getElementById("box");
 var boxHeight = box.offsetHeight;
 var boxWidth = box.offsetWidth;
@@ -16,7 +24,7 @@ var distance = function (x0, y0, x1, y1) {
     return Math.sqrt(Math.pow(x0-x1, 2) + Math.pow(y0-y1, 2));
 };
 
-
+//changes color based on location
 var findIt = function(e) {
     //console.log(e.x);
     //console.log(e.y);
@@ -26,6 +34,7 @@ var findIt = function(e) {
     box.style.backgroundColor = color;
 };
 
+//finds color based on location from target
 var getColor = function(dist){
     if(counter > 0) return "red";
     var blackDist = distance(0, 0, boxHeight, boxWidth);
@@ -37,6 +46,7 @@ var getColor = function(dist){
     return color;
 }
 
+//determines if the mouse clicks on the target
 var isFound = function(e){
     console.log(distance(e.x, e.y, targetX, targetY));
     var epsilon = 10;
@@ -52,5 +62,7 @@ var isFound = function(e){
     }
 }
 
+//changes color as mouse moves
 box.addEventListener("mousemove", findIt);
+//checks if the target found with mouseclick
 box.addEventListener("click", isFound);
